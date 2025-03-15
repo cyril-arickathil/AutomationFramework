@@ -6,7 +6,6 @@ import org.example.pages.HomePage;
 import org.example.pages.LoginPage;
 import org.example.pages.SelectPage;
 import org.example.pages.WebFormPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -82,16 +81,15 @@ public class AppTest extends BaseTest {
         softAssert.assertAll();
 
     }
+
     @Test
-    public void test_webForm(){
+    public void test_webForm() {
         String expectedMessage = "Received!";
         homePage.goToHomePage();
         WebFormPage webFormPage = homePage.goToWebFromPage();
-        String actualMessage=
-        webFormPage.fill_webForm("admin", "admin123", "learning selenium", "Three");
+        String actualMessage =
+                webFormPage.fill_webForm("admin", "admin123", "learning selenium", "Three");
         assertEquals(actualMessage, expectedMessage, "form could not be submitted!");
-
-
 
 
     }
