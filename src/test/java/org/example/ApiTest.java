@@ -19,7 +19,7 @@ public class ApiTest {
 
 
     @Test
-    public void login(){
+    public void login() {
         String endPoint = BASE_URL + "/users/login";
         System.out.println("endpoint is " + endPoint);
         Login login = new Login("cyril_test@fake.com", "faketest");
@@ -41,6 +41,7 @@ public class ApiTest {
         );
         var response = given().header("Authorization", "Bearer " + TOKEN).contentType("application/json")
                 .body(contacts).when().post(BASE_URL + "/contacts");
+
         response.then().assertThat().statusCode(201).
                 body("firstName", equalTo("James"));
         String _id = response.jsonPath().get("_id");
@@ -51,8 +52,8 @@ public class ApiTest {
     public void getContacts() {
         var response = given().header("Authorization", "Bearer " + TOKEN).contentType("application/json")
                 .when().get(BASE_URL + "/contacts");
-       response.jsonPath().get("[0]._id");
-       response.then().log().body();
+        response.jsonPath().get("[0]._id");
+        response.then().log().body();
     }
 
     @Test
