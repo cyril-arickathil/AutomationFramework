@@ -12,14 +12,16 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
-public class ApiTest {
+public class ApiTest
+{
     private static final Logger log = LoggerFactory.getLogger(ApiTest.class);
     final String BASE_URL = "https://thinking-tester-contact-list.herokuapp.com";
     String TOKEN;
 
 
     @Test
-    public void login() {
+    public void login()
+    {
         String endPoint = BASE_URL + "/users/login";
         System.out.println("endpoint is " + endPoint);
         Login login = new Login("cyril_test@fake.com", "faketest");
